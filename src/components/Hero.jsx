@@ -7,7 +7,7 @@ import CompanyLogos from "./CompanyLogos";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
 import Generating from "./Generating";
 import Notification from "./Notification";
-import Section from "./section";
+import Section from "./Section";
 
 
 const Hero = () => {
