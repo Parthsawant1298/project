@@ -1,59 +1,75 @@
-import Section from "./Section";
+import Section from "./section";
 import Heading from "./Heading";
-import { service1, service2, service3, check } from "../assets";
-import { brainwaveServices, brainwaveServicesIcons } from "../constants";
-import {
-  PhotoChatMessage,
-  Gradient,
-  VideoBar,
-  VideoChatMessage,
-} from "./design/Services";
-
-import Generating from "./Generating";
+import { service1, service2, service3, check, stars } from "../assets";
+import { brainwaveServicesIcons } from "../constants";
 
 const Services = () => {
+  const platformFeatures = [
+    "End-to-End ML Pipeline Automation",
+    "Intelligent Dataset Generation",
+    "Interactive Data Analysis", 
+    "AI-Powered Visualization",
+    "Comprehensive Model Training"
+  ];
+
   return (
-    <Section id="how-to-use">
+    <Section crosses id="features">
       <div className="container">
-        <Heading
-          title="Generative AI made for creators."
-          text="Brainwave unlocks the potential of AI-powered applications"
+        <div className="absolute top-1/2 left-1/2 w-[60rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <img
+            src={stars}
+            className="w-full"
+            width={950}
+            height={400}
+            alt="Stars"
+          />
+        </div>
+        <Heading className={"mx-auto text-center lg:mt-[3rem]"}
+          title="Revolutionize Your Machine Learning Workflow"
+          text="Automate, Accelerate, and Innovate with Nebula AI"
         />
 
         <div className="relative">
+          {/* First Feature Section: Comprehensive Automation */}
           <div className="relative z-1 flex items-center h-[39rem] mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden lg:p-20 xl:h-[46rem]">
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none md:w-3/5 xl:w-auto">
               <img
                 className="w-full h-full object-cover md:object-right"
                 width={800}
-                alt="Smartest AI"
                 height={730}
                 src={service1}
+                alt="End-to-End ML Automation"
               />
             </div>
 
             <div className="relative z-1 max-w-[17rem] ml-auto">
-              <h4 className="h4 mb-4">Smartest AI</h4>
+              <h4 className="h4 mb-2">Complete ML Project Automation</h4>
               <p className="body-2 mb-[3rem] text-n-3">
-                Brainwave unlocks the potential of AI-powered applications
+                Transform your ideas into fully functional machine learning projects with zero complexity
               </p>
               <ul className="body-2">
-                {brainwaveServices.map((item, index) => (
+                {platformFeatures.map((feature, index) => (
                   <li
                     key={index}
                     className="flex items-start py-4 border-t border-n-6"
                   >
-                    <img width={24} height={24} src={check} />
-                    <p className="ml-4">{item}</p>
+                    <img 
+                      src={check} 
+                      width={24} 
+                      height={24} 
+                      alt="check" 
+                      className="mr-4" 
+                    />
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
-
-            <Generating className="absolute left-4 right-4 bottom-4 border-n-1/10 border lg:left-1/2 lg-right-auto lg:bottom-8 lg:-translate-x-1/2" />
           </div>
 
+          {/* Two-Column Feature Showcase */}
           <div className="relative z-1 grid gap-5 lg:grid-cols-2">
+            {/* Synthetic Data Generation */}
             <div className="relative min-h-[39rem] border border-n-1/10 rounded-3xl overflow-hidden">
               <div className="absolute inset-0">
                 <img
@@ -61,31 +77,28 @@ const Services = () => {
                   className="h-full w-full object-cover"
                   width={630}
                   height={750}
-                  alt="robot"
+                  alt="Synthetic Data Generation"
                 />
               </div>
 
               <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-b from-n-8/0 to-n-8/90 lg:p-15">
-                <h4 className="h4 mb-4">Photo editing</h4>
+                <h4 className="h4 mb-2">Synthetic Dataset Creation</h4>
                 <p className="body-2 mb-[3rem] text-n-3">
-                  Automatically enhance your photos using our AI app&apos;s
-                  photo editing feature. Try it now!
+                  Generate high-quality, custom synthetic datasets tailored to your specific machine learning needs
                 </p>
               </div>
-
-              <PhotoChatMessage />
             </div>
 
+            {/* Interactive AI Guidance */}
             <div className="p-4 bg-n-7 rounded-3xl overflow-hidden lg:min-h-[46rem]">
               <div className="py-12 px-4 xl:px-8">
-                <h4 className="h4 mb-4">Video generation</h4>
+                <h4 className="h4 mb-2">AI-Powered Guidance</h4>
                 <p className="body-2 mb-[2rem] text-n-3">
-                  The world’s most powerful AI photo and video art generation
-                  engine. What will you create?
+                  Intelligent chatbot assistance to guide you through every step of your machine learning journey
                 </p>
 
                 <ul className="flex items-center justify-between">
-                  {brainwaveServicesIcons.map((item, index) => (
+                  {brainwaveServicesIcons.slice(0, 3).map((item, index) => (
                     <li
                       key={index}
                       className={`rounded-2xl flex items-center justify-center ${
@@ -101,7 +114,7 @@ const Services = () => {
                             : ""
                         }
                       >
-                        <img src={item} width={24} height={24} alt={item} />
+                        <img src={item} width={24} height={24} alt={`Service icon ${index + 1}`} />
                       </div>
                     </li>
                   ))}
@@ -114,16 +127,11 @@ const Services = () => {
                   className="w-full h-full object-cover"
                   width={520}
                   height={400}
-                  alt="Scary robot"
+                  alt="AI Guidance"
                 />
-
-                <VideoChatMessage />
-                <VideoBar />
               </div>
             </div>
           </div>
-
-          <Gradient />
         </div>
       </div>
     </Section>

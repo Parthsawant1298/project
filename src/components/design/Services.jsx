@@ -1,20 +1,57 @@
+import React from 'react';
 import { brainwaveWhiteSymbol, gradient, play } from "../../assets";
 import ChatBubbleWing from "../../assets/svg/ChatBubbleWing";
 
-export const Gradient = () => {
+// Generate random stars
+const StarBackground = () => {
+  const generateStars = (count = 50) => {
+    return Array.from({ length: count }, (_, index) => {
+      const size = Math.random() * 5 + 0.5; // Random size between 0.5 and 2.5
+      const x = Math.random() * 100; // Percentage-based positioning
+      const y = Math.random() * 100;
+      const opacity = Math.random() * 0.7 + 0.3; // Random opacity between 0.3 and 1
+
+      return (
+        <div
+          key={index}
+          className="absolute rounded-full bg-white"
+          style={{
+            width: `${size}px`,
+            height: `${size}px`,
+            left: `${x}%`,
+            top: `${y}%`,
+            opacity: opacity
+          }}
+        />
+      );
+    });
+  };
+
   return (
-    <div className="absolute top-0 -left-[10rem] w-[56.625rem] h-[56.625rem] opacity-50 mix-blend-color-dodge pointer-events-none">
-      <img
-        className="absolute top-1/2 left-1/2 w-[79.5625rem] max-w-[79.5625rem] h-[88.5625rem] -translate-x-1/2 -translate-y-1/2"
-        src={gradient}
-        width={1417}
-        height={1417}
-        alt="Gradient"
-      />
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {generateStars()}
     </div>
   );
 };
 
+export const Gradient = () => {
+  return (
+    <>
+      <StarBackground />
+      <div className="absolute top-0 -left-[10rem] w-[56.625rem] h-[56.625rem] opacity-50 mix-blend-color-dodge pointer-events-none">
+        <img
+          className="absolute top-1/2 left-1/2 w-[79.5625rem] max-w-[79.5625rem] h-[88.5625rem] -translate-x-1/2 -translate-y-1/2"
+          src={gradient}
+          width={1417}
+          height={1417}
+          alt="Gradient"
+        />
+      </div>
+    </>
+  );
+};
+
+// Rest of the components remain the same
 export const PhotoChatMessage = () => {
   return (
     <div className="absolute top-8 right-8 max-w-[17.5rem] py-6 px-8 bg-black rounded-t-xl rounded-bl-xl font-code text-base lg:top-16 lg:right-[8.75rem] lg:max-w-[17.5rem]">
@@ -57,10 +94,11 @@ export const VideoBar = () => {
         alt="Play"
         className="object-contain mr-3"
       />
-
       <div className="flex-1 bg-[#D9D9D9]">
         <div className="w-1/2 h-0.5 bg-color-1"></div>
       </div>
     </div>
   );
 };
+
+export default { Gradient, PhotoChatMessage, VideoChatMessage, VideoBar };

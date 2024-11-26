@@ -1,29 +1,53 @@
-import React from "react";
-import Section from "./Section";
-import { socials } from "../constants";
+import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import Section from './section';
 
 const Footer = () => {
   return (
-    <Section crosses className="!px-0 !py-10">
-      <div className="container flex sm:justify-between justify-center items-center gap-10 max-sm:flex-col">
-        <p className="caption text-n-4 lg:block">
-          © {new Date().getFullYear()}. All rights reserved.
-        </p>
-
-        <ul className="flex gap-5 flex-wrap">
-          {socials.map((item) => (
-            <a
-              key={item.id}
-              href={item.url}
-              target="_blank"
-              className="flex items-center justify-center w-10 h-10 bg-n-7 rounded-full transition-colors hover:bg-n-6"
-            >
-              <img src={item.iconUrl} width={16} height={16} alt={item.title} />
-            </a>
-          ))}
-        </ul>
+     
+      <div className="bg-n-7 text-white py-8">
+        <div className="container mx-auto px-6 md:px-16 grid md:grid-cols-3 gap-8">
+          <div>
+            <h4 className="text-lg font-bold mb-4">About Us</h4>
+            <p className="text-gray-400 text-sm">
+              Your concise company description goes here. Brief yet informative.
+            </p>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-bold mb-4">Quick Links</h4>
+            <nav className="space-y-2">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">Home</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">Services</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a>
+            </nav>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-bold mb-4">Connect</h4>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-400 hover:text-white">
+                <Facebook size={24} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                <Twitter size={24} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                <Instagram size={24} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                <Linkedin size={24} />
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div className="border-t border-gray-700 mt-8 py-4 text-center">
+          <p className="text-sm text-gray-500">
+            © 2024 Your Company. All Rights Reserved.
+          </p>
+        </div>
       </div>
-    </Section>
+    
   );
 };
 

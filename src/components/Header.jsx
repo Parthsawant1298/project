@@ -1,12 +1,12 @@
 import { useLocation } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
-import { brainwave } from "../assets";
+import { useState } from "react";
+import { background,brainwave, brainwaveSymbol } from "../assets";
+import MenuSvg from "../assets/svg/MenuSvg";
 import { navigation } from "../constants";
 import Button from "./Button";
-import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
-import { useState } from "react";
 
 const Header = () => {
   const pathname = useLocation();
@@ -71,7 +71,9 @@ const Header = () => {
           href="#signup"
           className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block"
         >
+        <Button className="hidden lg:flex" href="#signup">
           New account
+        </Button>
         </a>
         <Button className="hidden lg:flex" href="#login">
           Sign in
