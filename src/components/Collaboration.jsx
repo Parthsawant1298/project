@@ -3,7 +3,7 @@ import { brainwave, check } from "../assets";
 import { collabApps } from "../constants";
 import Button from "./Button";
 import { LeftCurve, RightCurve } from "./design/Collaboration";
-import Section from "./section";
+import Section from "./Section";
 
 const FeatureItem = ({ title, description }) => (
   <li className="mb-6 last:mb-0">
